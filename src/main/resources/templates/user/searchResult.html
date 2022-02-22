@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/css/layui.css}"  media="all">
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}"  media="all">
+    <link rel="stylesheet" th:href="@{/css/buwei.css}"  media="all">
+</head>
+<body>
+
+<!--建立视图，用于呈现渲染结果-->
+<div id="view"></div>
+
+<input type="hidden" th:value="${name}" id="hiddenName"/>
+<input type="hidden" th:value="${type}" id="hiddenType"/>
+
+<!--建立模板-->
+<script id="demo" type="text/html">
+    {{# if(d.type == "branch") { }}
+        {{# if(d.isParent) { }}
+            <a href="/searchResult?name={{d.name}}&type=branch">
+                <submit class="submit3 quanshen" style="vertical-align:middle"><span class="ui raised segment">{{d.name}}</span></submit>
+            </a>
+        {{# }else { }}
+            <a href="/planDetail?name={{d.name}}">
+                <submit class="submit3 quanshen" style="vertical-align:middle"><span class="ui raised segment">{{d.name}}</span></submit>
+            </a>
+        {{# } }}
+    {{# }else if(d.type == "position") { }}
+        <a href="/planDetail?name={{d.name}}">
+            <submit class="submit3 quanshen" style="vertical-align:middle"><span class="ui raised segment">{{d.name}}</span></submit>
+        </a>
+    {{# } }}
+    <!--    <div class="ui purple segment">纯紫</div>-->
+</script>
+
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/js/semantic.min.js}"></script>
+
+
+<script type="text/javascript">
+    layui.use(['laytpl','jquery'],function(){
+        var laytpl = layui.laytpl,
+            $ = layui.$;
+
+        var name = $("#hiddenName").val();
+        var type = $("#hiddenType").val();
+        console.log(name);
+        //渲染模板
+        $(function(){
+            //是按分科分类
+            if (type === "branch"){
+                $.ajax({
+                    url: '/branch/branchUserSearchByName?name='+name,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                        //请求成功
+                        if(res.status == 200){
+                            //$('#normal-exchange')[0].style.display = "";
+                            var htmlList = '';
+                            var data = res.data;
+
+                            var getTpl = demo.innerHTML;
+
+                            //将返回的数据以模板的形式显示出来
+                            $.each(data, function(index,elem) {//i为索引,el为当前对象
+                                console.log(elem);
+                                htmlList += laytpl(getTpl).render(elem);
+                            });
+
+                            $('#view').empty().append(htmlList);
+                        }
+                    }
+                });
+            } else {
+                //是按部位分类
+                $.ajax({
+                    url: '/position/positionUserSearchByName?name='+name,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                        //请求成功
+                        if(res.status == 200){
+                            //$('#normal-exchange')[0].style.display = "";
+                            var htmlList = '';
+                            var data = res.data;
+
+                            var getTpl = demo.innerHTML;
+
+                            //将返回的数据以模板的形式显示出来
+                            $.each(data, function(index,elem) {//i为索引,el为当前对象
+                                console.log(elem);
+                                htmlList += laytpl(getTpl).render(elem);
+                            });
+
+                            $('#view').empty().append(htmlList);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

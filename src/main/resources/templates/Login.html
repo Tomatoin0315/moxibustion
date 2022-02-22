@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+    <style type="text/css">
+        .sign{
+            /*border: 2px solid #ccc;*/
+            border-radius: 10px;
+            /*background-color: #f8f7ec;*/
+        }
+        .layui-form-label{
+            text-align: center;
+        }
+        @font-face {
+            font-family: 'iconfont';  /* project id 1949295 */
+            src: url('//at.alicdn.com/t/font_1949295_9p8epkk34q.eot');
+            src: url('//at.alicdn.com/t/font_1949295_9p8epkk34q.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_1949295_9p8epkk34q.woff2') format('woff2'),
+            url('//at.alicdn.com/t/font_1949295_9p8epkk34q.woff') format('woff'),
+            url('//at.alicdn.com/t/font_1949295_9p8epkk34q.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_1949295_9p8epkk34q.svg#iconfont') format('svg');
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:30px;font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;}
+    </style>
+</head>
+<body>
+<div class="layui-row" style="height:150px ">
+
+</div>
+<div class="layui-row" style="height: 600px">
+    <div class="layui-col-xs-offset4 layui-col-xs4 sign" style="">
+        <div class="layui-row" style="margin-bottom: 20px">
+            <div class="layui-col-xs-offset3 layui-col-xs6">
+                <h3 style="font-size: 30px;text-align: center" >登录</h3>
+            </div>
+        </div>
+        <!-- 表单选项 -->
+        <div class="layui-row">
+            <div class="layui-col-xs12">
+                <form class="layui-form" th:action="@{/login}" method="post">
+                    <div class="layui-form-item" style="">
+                        <!-- 用户名 -->
+                        <label class="layui-form-label"><i class="iconfont">&#xe634;</i></label>
+                        <div class="layui-input-inline" style="width: 68%">
+                            <input type="text" id="user" name="account" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                        </div>
+                        <!-- 对号 -->
+                        <div class="layui-inline">
+                            <i class="iconfont" id="ri" style="color: green;font-weight: bolder;" hidden>&#xe639;</i>
+                        </div>
+                        <!-- 错号 -->
+                        <div class="layui-inline">
+                            <i class="iconfont" id="wr" style="color: red; font-weight: bolder;" hidden>&#xe723;</i>
+                        </div>
+                    </div>
+                    <!-- 密码 -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><i class="iconfont">&#xe668;</i></label>
+                        <div class="layui-input-inline" style="width: 68%">
+                            <input type="password" id="pwd" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        </div>
+                        <!-- 对号 -->
+                        <div class="layui-inline">
+                            <i class="iconfont" id="pri" style="color: green;font-weight: bolder;" hidden>&#xe639;</i>
+                        </div>
+                        <!-- 错号 -->
+                        <div class="layui-inline">
+                            <i class="iconfont" id="pwr" style="color: red; font-weight: bolder;" hidden>&#xe723;</i>
+                        </div>
+                    </div>
+                    <div class="layui-form-item login-btn" style="width: 100%">
+                        <button type="submit" lay-submit lay-filter="sub" class="layui-btn" style="width: 100%" >登录</button>
+                    </div>
+                    <hr/>
+<!--                    <p>-->
+<!--                        <a th:href="@{/login}" class="fl" style="float: left">没有账号？立即注册</a>-->
+<!--                        <a href="javascript:;" style="float: right">忘记密码？</a>-->
+<!--                    </p>-->
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript">
+    layui.use(['form','jquery','layer'], function () {
+        var form   = layui.form;
+        var $= layui.jquery;
+        var layer  = layui.layer;
+        //添加表单失焦事件
+        //验证表单
+        $('#user').blur(function() {
+            var user = $(this).val();
+            console.log(user);
+            /*if (user!="") {
+
+                $.ajax({
+                    url: '/check',
+                    type: 'post',
+                    dataType: 'text',
+                    data: {admin: user},
+                    //验证用户名是否可用
+                    success: function (data) {
+                        if (data) {
+                            $('#ri').removeAttr('hidden');
+                            $('#wr').attr('hidden', 'hidden');
+                        } else {
+                            $('#wr').removeAttr('hidden');
+                            $('#ri').attr('hidden', 'hidden');
+                        }
+                    }
+                })
+            }*/
+        });
+        // 为密码添加正则验证
+        $('#pwd').blur(function() {
+            if($(this).val()!="") {
+                var reg = /^[\w]{6,12}$/;
+                if (!($('#pwd').val().match(reg))) {
+                    //layer.msg('请输入合法密码');
+                    $('#pwr').removeAttr('hidden');
+                    $('#pri').attr('hidden', 'hidden');
+                    layer.msg('请输入合法密码');
+                } else {
+                    $('#pri').removeAttr('hidden');
+                    $('#pwr').attr('hidden', 'hidden');
+                }
+            }
+        });
+
+        //添加表单监听事件,提交登录信息
+        /*form.on('submit(sub)', function() {
+            $.ajax({
+                url:'/login',
+                type:'post',
+                dataType:'text',
+                data:{
+                    user:$('#user').val(),
+                    pwd:$('#pwd').val(),
+                },
+                success:function(data){
+                    if (data) {
+                        layer.msg('登录成功');
+                        ///location.href = "login.html";
+                    }else {
+                        layer.msg(${msg});
+                    }
+                }
+            });
+            //防止页面跳转,
+            //return false;
+        });*/
+    });
+</script>
+</body>
+</html>

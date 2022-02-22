@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+</head>
+<body>
+<div class="layui-row" style="margin-top: 20px;margin-bottom: 20px">
+    <div class="layui-col-xs-offset10 layui-col-xs1">
+        <span class="layui-breadcrumb" lay-separator="—">
+          <a><cite>欢迎您的到来</cite></a>
+        </span>
+    </div>
+</div>
+<div class="layui-row">
+    <div class="layui-col-xs12">
+        <div class="layui-carousel" id="test1">
+            <div carousel-item>
+                <div><img th:src="@{/images/L1_副本.jpg}"></div>
+                <div><img th:src="@{/images/L2_副本.jpg}"></div>
+                <div><img th:src="@{/images/L3_副本.jpg}"></div>
+                <div><img th:src="@{/images/L4_副本.jpg}"></div>
+                <div><img th:src="@{/images/L5_副本.jpg}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script>
+    layui.use('element', function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+
+    // layui.use('layim', function(layim){
+    //     var layim = layui.layim;
+    //     layim.config({
+    //         init: {
+    //             //配置客户信息
+    //             mine: {
+    //                 "username": "访客" //我的昵称
+    //                 ,"id": "100000123" //我的ID
+    //                 ,"status": "online" //在线状态 online：在线、hide：隐身
+    //                 ,"remark": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
+    //                 // ,"avatar": "//res.layui.com/images/fly/avatar/00.jpg" //我的头像
+    //             }
+    //         }
+    //         //开启客服模式
+    //         ,brief: true
+    //     });
+    //     //打开一个客服面板
+    //     layim.chat({
+    //         name: '在线客服一' //名称
+    //         ,type: 'kefu' //聊天类型
+    //         // ,avatar: '//tp1.sinaimg.cn/5619439268/180/40030060651/1' //头像
+    //         ,id: 1111111 //定义唯一的id方便你处理信息
+    //     }).chat({
+    //         name: '在线客服二' //名称
+    //         ,type: 'kefu' //聊天类型
+    //         // ,avatar: '//tp1.sinaimg.cn/5619439268/180/40030060651/1' //头像
+    //         ,id: 2222222 //定义唯一的id方便你处理信息
+    //     });
+    //     layim.setChatMin(); //收缩聊天面板
+    // });
+
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            ,width: '100%' //设置容器宽度
+            ,height:'500px'
+            ,arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
+</body>
+</html>

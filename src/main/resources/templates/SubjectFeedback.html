@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>科目治疗方案反馈管理</title>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+</head>
+<body>
+<div class="layui-row" style="margin-bottom: 20px;margin-top: 20px">
+    <div class="layui-col-xs-offset1 layui-col-xs10">
+        <!--        <hr class="layui-bg-orange">-->
+        <span class="layui-breadcrumb" lay-separator="—">
+          <a href="">科目治疗方案反馈管理</a>
+        </span>
+    </div>
+</div>
+<div class="layui-row">
+    <div class="layui-col-xs-offset1 layui-col-xs10">
+
+        <div class="demoTable">
+            搜索反馈：
+            <div class="layui-inline">
+                <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+            </div>
+            <button class="layui-btn" data-type="reload">搜索</button>
+        </div>
+
+        <table class="layui-hide" id="LAY_table_user" lay-filter="user">
+            <!--            <thead>-->
+            <!--            <tr>-->
+            <!--                <th lay-data="{type:'checkbox', fixed: 'left'}"></th>-->
+            <!--                <th lay-data="{field:'id', title: 'ID', width:80, sort: true, fixed: true}">ID</th>-->
+            <!--                <th lay-data="{field:'name', title: '名称'}"></th>-->
+            <!--                <th lay-data="{field:'JingMai', title: '所属经脉'}"></th>-->
+            <!--                <th lay-data="{field:'code', title: '国际代码'}"></th>-->
+            <!--                <th lay-data="{field:'TeDingXue', title: '特定穴'}"></th>-->
+            <!--                <th lay-data="{field:'DingWei', title: '定位'}"></th>-->
+            <!--                <th lay-data="{field:'QuXueFa', title: '取穴法'}"></th>-->
+            <!--                <th lay-data="{field:'ZhuZhiBingZheng', title: '主治病症'}"></th>-->
+            <!--                <th lay-data="{field:'CanShu', title: '艾灸参数'}"></th>-->
+            <!--                <th lay-data="{field:'JingYan', title: '经验应用'}"></th>-->
+            <!--                <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}"></th>-->
+            <!--            </tr>-->
+            <!--            </thead>-->
+        </table>
+        <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="adopt">采用</a>
+            <!--            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        </script>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/js/SubjectFeedback.js}"></script>
+<script type="text/javascript">
+    layui.use(['form','layer'],function () {
+        var form=layui.form;
+        var layer=layui.layer;
+
+        form.on('submit(demo)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            });
+            return false;
+        });
+    });
+    layui.use('table',function () {
+
+        var table=layui.table;
+
+    })
+</script>
+</body>
+</html>

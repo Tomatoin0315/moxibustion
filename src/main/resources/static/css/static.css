@@ -1,0 +1,58 @@
+.title_top{
+    box-shadow: 4px 4px 4px #ccc;
+    width: 80%;
+    height: 70px;
+    padding: 20px;
+    font-size: 30px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+
+}
+
+.layui-row{
+    margin-top: 20px;
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 1949295 */
+    src: url('//at.alicdn.com/t/font_1949295_4pdb2bszzxh.eot');
+    src: url('//at.alicdn.com/t/font_1949295_4pdb2bszzxh.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1949295_4pdb2bszzxh.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1949295_4pdb2bszzxh.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1949295_4pdb2bszzxh.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1949295_4pdb2bszzxh.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:50px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.picture{
+    width: 80%;
+    height: 300px;
+    margin-top: 10px;
+}
+.pingce_result{
+    color:#B22222;
+    float: left!important;
+    margin: 10px!important;
+}
+.footer{
+    height: 100px;
+    background-color: rgba(70,113,70,0.6);
+    border-radius: 10px;
+    /*width: 100%;*/
+}
+body{
+    background-color: rgba(204,204,204,0.3);
+}

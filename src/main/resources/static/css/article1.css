@@ -1,0 +1,123 @@
+#div1{
+
+    border: 1px beige solid;
+    width: 512px;
+    text-align: left;
+}
+ul{
+    list-style-type: none;
+    list-style-image: url(../images/touxiang.jpg);
+
+}
+.box{
+    width: 600px;
+    height: 150px;
+    /*background-color: yellow;*/
+    border: 1px darkgray solid;
+    border-radius: 30px;
+    position: relative;
+}
+.box .touxiang{
+    width: 80px;
+    height: 80px;
+    background-image: url(../images/touxiang.jpg);
+    background-size: 100% 100%;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.box .nicheng{
+    width: 80px;
+    height:25px ;
+    /*background-color: red;*/
+    position: absolute;
+    left: 10px;
+    top: 100px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 25px;
+}
+.box .pinglun{
+    width: 290px;
+    height: 80px;
+    /*background-color: cyan;*/
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.box .shijian{
+    width: 200px;
+    height: 25px;
+    /*background-color: green;*/
+    position: absolute;
+    top: 100px;
+    left:100px;
+}
+/* Custom Styles */
+ul.nav-tabs{
+    width: 140px;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+ul.nav-tabs li{
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+ul.nav-tabs li:first-child{
+    border-top: none;
+}
+ul.nav-tabs li a{
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 0;
+}
+ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+    color: #fff;
+    background: #0088cc;
+    border: 1px solid #0088cc;
+}
+ul.nav-tabs li:first-child a{
+    border-radius: 4px 4px 0 0;
+}
+ul.nav-tabs li:last-child a{
+    border-radius: 0 0 4px 4px;
+}
+ul.nav-tabs.affix{
+    top: 30px; /* Set the top position of pinned element */
+}
+/* Custom Styles */
+ul.nav-tabs{
+    width: 140px;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+ul.nav-tabs li{
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+ul.nav-tabs li:first-child{
+    border-top: none;
+}
+ul.nav-tabs li a{
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 0;
+}
+ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+    color: #fff;
+    background: #0088cc;
+    border: 1px solid #0088cc;
+}
+ul.nav-tabs li:first-child a{
+    border-radius: 4px 4px 0 0;
+}
+ul.nav-tabs li:last-child a{
+    border-radius: 0 0 4px 4px;
+}
+ul.nav-tabs.affix{
+    top: 30px; /* Set the top position of pinned element */
+}

@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 左边导航按钮 */
+.submit {
+  border-radius: 4px;
+  background-color:dimgray;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px 25%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 20px 15%;
+  line-height: 135px;
+}
+
+.submit span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.submit span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.submit:hover {
+  background-color:lightseagreen;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.submit:hover span {
+  padding-right: 20px;
+}
+
+.submit:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/* 顶部导航 */
+.top{
+  margin-top: 1px;
+    height: 40px;
+    background-color: lightgray;
+}
+/* 左边导航 */
+.left{
+  background-color:#487a6f;
+  margin-top: 0px;
+  border-bottom: 10px solid #487a6f;
+  width: 20%;
+  height: 800px;
+  line-height: 100px;
+  float: left;
+}
+/* 登陆按钮 */
+.submit2{
+  color: black;
+  text-emphasis-color: red;
+  float: right;
+  margin-right: 20px;
+  margin-top: 7px;
+}
+/* 科目按钮 */
+.submit3{
+  border-radius: 20%;
+  background-color:lightgrey; /* Green */
+  border: none;
+  color: black;
+  padding: 40px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5% 40px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.submit3:hover {
+  background-color:dimgray;
+  background-size: 100% 100%;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}.neike:hover{
+  background-image: url(内科.jpg);
+  background-size: 100%;
+}
+.fuke:hover{
+  background-image: url(妇科.jpg);
+  background-size: 100%;
+}
+.erke:hover{
+  background-image: url(儿科.jpg);
+  background-size: 100%;
+}
+.gangchang:hover{
+  background-image: url(肛肠.jpg);
+  background-size: 100%;
+}
+.pifu:hover{
+  background-image: url(皮肤.jpg);
+  background-size: 100%;
+}
+.wuguan:hover{
+  background-image: url(五官.jpg);
+  background-size: 100%;
+}
+.waike:hover{
+  background-image: url(外科.jpg);
+  background-size: 100%;
+}
+/* 右边主要功能 */
+.right{
+    background-color:lightslategray;
+    background-image: url(艾灸.jpg);
+    background-size: 100% 100%;
+    margin-top: 0px;
+    height: 800px;
+    width: 80%;
+    line-height: 100px;
+    float: right;
+  }
+  /* 搜索框 */
+  input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #78a045;
+  }
+  
+  .search {
+    /* background-color:darkgray; */
+    border-radius: 2px;
+    padding: 0px 60px;
+  }

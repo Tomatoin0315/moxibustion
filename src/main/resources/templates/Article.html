@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文章管理</title>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+</head>
+<body>
+<div class="layui-row" style="margin-bottom: 20px;margin-top: 20px">
+    <div class="layui-col-xs-offset1 layui-col-xs10">
+<!--        <hr class="layui-bg-orange">-->
+        <span class="layui-breadcrumb" lay-separator="—">
+          <a href="">文章管理</a>
+        </span>
+    </div>
+</div>
+<div class="layui-row">
+    <div class="layui-col-xs-offset1 layui-col-xs10">
+
+        <div class="demoTable">
+            搜索文章：
+            <div class="layui-inline">
+                <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+            </div>
+            <button class="layui-btn" data-type="reload">搜索</button>
+        </div>
+
+        <table class="layui-hide" id="LAY_table_user" lay-filter="user">
+            <!--            <thead>-->
+            <!--            <tr>-->
+            <!--                <th lay-data="{type:'checkbox', fixed: 'left'}"></th>-->
+            <!--                <th lay-data="{field:'id', title: 'ID', width:80, sort: true, fixed: true}">ID</th>-->
+            <!--                <th lay-data="{field:'name', title: '名称'}"></th>-->
+            <!--                <th lay-data="{field:'JingMai', title: '所属经脉'}"></th>-->
+            <!--                <th lay-data="{field:'code', title: '国际代码'}"></th>-->
+            <!--                <th lay-data="{field:'TeDingXue', title: '特定穴'}"></th>-->
+            <!--                <th lay-data="{field:'DingWei', title: '定位'}"></th>-->
+            <!--                <th lay-data="{field:'QuXueFa', title: '取穴法'}"></th>-->
+            <!--                <th lay-data="{field:'ZhuZhiBingZheng', title: '主治病症'}"></th>-->
+            <!--                <th lay-data="{field:'CanShu', title: '艾灸参数'}"></th>-->
+            <!--                <th lay-data="{field:'JingYan', title: '经验应用'}"></th>-->
+            <!--                <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}"></th>-->
+            <!--            </tr>-->
+            <!--            </thead>-->
+        </table>
+        <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">编辑</a>
+            <!--            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        </script>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/js/Article.js}"></script>
+<script type="text/javascript">
+    layui.use(['form','layer'],function () {
+        var form=layui.form;
+        var layer=layui.layer;
+
+        form.on('submit(demo)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            });
+            $.ajax({
+               url: "",
+               type: "post",
+               data:{
+                   data:data.field
+               },
+                success:function (data) {
+                    if (data.status == '200') {
+                        layer.msg("编辑成功")
+                    } else {
+                        layer.msg("编辑失败")
+                    }
+                }
+            });
+            return false;
+        });
+    });
+    layui.use('table',function () {
+
+        var table=layui.table;
+
+    })
+</script>
+</body>
+<div class="layui-row" id="form_edit" style="margin-top: 20px;display: none">
+    <div class="layui-col-xs-offset1 layui-col-xs10">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+<!--            科目，不清楚这两个需不需要，不需要的话删掉即可-->
+            <div class="layui-form-item">
+                <label class="layui-form-label">所属科目</label>
+                <div class="layui-input-block">
+                    <input type="text" name="kemu" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+<!--            对应部位，不清楚这两个需不需要，不需要的话删掉即可-->
+            <div class="layui-form-item">
+                <label class="layui-form-label">部位症状</label>
+                <div class="layui-input-block">
+                    <input type="text" name="buwei" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">概述</label>
+                <div class="layui-input-block">
+                    <textarea name="gaishu" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">症状</label>
+                <div class="layui-input-block">
+                    <textarea name="zhenghzhuang" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">病因分析与鉴别</label>
+                <div class="layui-input-block">
+                    <textarea name="bingyin" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">艾灸取穴</label>
+                <div class="layui-input-block">
+                    <textarea name="quxue" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">案例</label>
+                <div class="layui-input-block">
+                    <textarea name="anli" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">艾灸体会</label>
+                <div class="layui-input-block">
+                    <textarea name="tihui" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="margin-left: 40%">
+                <button class="layui-btn layui-btn-warm layui-btn-lg" lay-submit="" lay-filter="demo">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</html>

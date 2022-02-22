@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjy.moxibustion.dao.XueweiContentMapper">
+  <resultMap id="BaseResultMap" type="com.yjy.moxibustion.pojo.XueweiContent">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="guojidaima" jdbcType="VARCHAR" property="guojidaima" />
+    <result column="tedingxue" jdbcType="VARCHAR" property="tedingxue" />
+    <result column="dingwei" jdbcType="VARCHAR" property="dingwei" />
+    <result column="quxuefa" jdbcType="VARCHAR" property="quxuefa" />
+    <result column="zhuzhi" jdbcType="VARCHAR" property="zhuzhi" />
+    <result column="canshu" jdbcType="VARCHAR" property="canshu" />
+    <result column="yingyong" jdbcType="VARCHAR" property="yingyong" />
+    <result column="picture" jdbcType="VARCHAR" property="picture" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,351 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 左边导航按钮 */
+.submit {
+  border-radius: 4px;
+  background-color:dimgray;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px 25%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 20px 15%;
+  line-height: 135px;
+}
+
+.submit span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.submit span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.submit:hover {
+  background-color:lightseagreen;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.submit:hover span {
+  padding-right: 20px;
+}
+
+.submit:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/* 顶部导航 */
+.top{
+  margin-top: 1px;
+    height: 40px;
+    background-color: lightgray;
+}
+/* 左边导航 */
+.left{
+  background-color:#487a6f;
+  margin-top: 0px;
+  border-bottom: 10px solid #487a6f;
+  width: 20%;
+  height: 800px;
+  line-height: 100px;
+  float: left;
+}
+/* 登陆按钮 */
+.submit2{
+  color: black;
+  text-emphasis-color: red;
+  float: right;
+  margin-right: 20px;
+  margin-top: 7px;
+}
+/* 科目按钮 */
+.submit3{
+  border-radius: 20%;
+  background-color:lightgrey; /* Green */
+  border: none;
+  color: black;
+  padding: 100px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3% 60px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.submit3:hover {
+  background-color:dimgray;
+  background-size: 100% 100%;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.neike{
+  background-image: url(../images/内科.jpg);
+  background-size: 100% 100%;
+}
+.fuke{
+  background-image: url(../images/妇科.jpg);
+  background-size: 100% 100%;
+}
+.erke{
+  background-image: url(../images/儿科.jpg);
+  background-size: 100% 100%;
+}
+.gangchang{
+  background-image: url(../images/肛肠.jpg);
+  background-size: 100% 100%;
+}
+.pifu{
+  background-image: url(../images/皮肤.jpg);
+  background-size: 100% 100%;
+}
+.wuguan{
+  background-image: url(../images/五官.jpg);
+  background-size: 100% 100%;
+}
+.waike{
+  background-image: url(../images/外科.jpg);
+  background-size: 100% 100%;
+}
+.qita{
+  background-image: url(../images/其他.jpg);
+  background-size: 100% 100%;
+}
+.quanshen{
+  background-image: url(../images/症状.jpg);
+  background-size: 100% 100%;
+}
+.toubu{
+  background-image: url(../images/症状.jpg);
+  background-size: 100% 100%;
+}
+.sizhi{
+  background-image: url(../images/症状.jpg);
+  background-size: 100% 100%;
+}
+.beiyao{
+  background-image: url(../images/症状.jpg);
+  background-size: 100% 100%;
+}
+.box{
+  margin: 0 auto;
+}
+/* 右边主要功能 */
+.right{
+  background-color:lightslategray;
+  /*background-image: url(buwei.jpg);*/
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size:400px 800px;
+  margin-top: 0px;
+  height: 810px;
+  width: 80%;
+  line-height: 100px;
+  float: right;
+}
+.tupian{
+  background-image: url(../images/buwei.jpg)
+  /*background-position: center center;*/
+
+}
+
+/* 搜索框 */
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #78a045;
+}
+
+.search {
+  /* background-color:darkgray; */
+  border-radius: 2px;
+  padding: 0px 60px;
+}
+
+/*.btn1 {
+
+background:#99ff00;
+
+position:absolute;
+
+left:500px;
+
+top:500px;
+
+}*/
+
+.btn1{
+  position: relative;
+  top: 10%;
+  left: 48%;
+  /*opacity: value|inherit;*/
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn2{
+  position: relative;
+  top: 18%;
+  left: 45%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn3{
+  position: relative;
+  top: 47%;
+  left: 27%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn4{
+  position: relative;
+  top: 47%;
+  left: 55%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn5{
+  position: relative;
+  top: 75%;
+  left: 30%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn6{
+  position: relative;
+  top: 75%;
+  left: 40%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn7{
+  position: relative;
+  top: 22%;
+  left: 25%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn8{
+  position: relative;
+  top: 22%;
+  left: 35%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn9{
+  position: relative;
+  top: 23%;
+  left: 59%;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  background-color: #ADEAEA;
+  border-radius:4px;
+
+}
+
+.btn10{
+  position: relative;
+  top: 43%;
+  left: 25%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn11{
+  position: relative;
+  top: 27%;
+  left: 22%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn12{
+  position: relative;
+  top: 40%;
+  left: 20%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+.btn13{
+  position: relative;
+  top: 45%;
+  left: 16%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+
+.btn14{
+  position: relative;
+  top: 48%;
+  left: 10%;
+  background-color:transparent;
+  border-style:none;
+  color: transparent;
+}
+
+
+
+
+.btn15{
+  position: relative;
+  top:15%;
+  left: 36.8%;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  background-color: #ADEAEA;
+  border-radius:4px;
+}

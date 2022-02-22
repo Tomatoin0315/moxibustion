@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/css/layui.css}"  media="all" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/buwei.css}"  media="all" type="text/css">
+
+</head>
+<body>
+<div class="layui-tab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">按部位分类</li>
+        <li>按科目分类</li>
+    </ul>
+    <div class="layui-tab-content">
+
+        <!--按部位分类-->
+        <div class="layui-tab-item layui-show" style="height:1000px;">
+            <div class="tupian" id="tupian" style="height:1000px; background-repeat:no-repeat; background-position: center center;background-position: center center;">
+                <a th:href="@{/searchResult(name='头部',type='position')}">
+                    <button type="button" class="btn btn-primary btn1" >头部</button>
+                </a>
+                <a th:href="@{/searchResult(name='颈部',type='position')}">
+                    <button type="button" class="btn btn-primary btn2" >颈部</button>
+                </a>
+                <a th:href="@{/searchResult(name='手部',type='position')}">
+                    <button type="button" class="btn btn-primary btn3" >手部</button>
+                </a>
+                <a th:href="@{/searchResult(name='手部',type='position')}">
+                    <button type="button" class="btn btn-primary btn4" >手部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='腿部',type='position')}">
+                    <button type="button" class="btn btn-primary btn5" >腿部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='腿部',type='position')}">
+                    <button type="button" class="btn btn-primary btn6" >腿部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='肩部',type='position')}">
+                    <button type="button" class="btn btn-primary btn7" >肩部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='肩部',type='position')}">
+                    <button type="button" class="btn btn-primary btn8" >肩部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='背部',type='position')}">
+                    <button type="button" class="btn btn-primary btn9" >背部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='腰部',type='position')}">
+                    <button type="button" class="btn btn-primary btn10" >腰部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='胸部',type='position')}">
+                    <button type="button" class="btn btn-primary btn11" >胸部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='腹部',type='position')}">
+                    <button type="button" class="btn btn-primary btn12" >腹部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='肛肠直肠部',type='position')}">
+                    <button type="button" class="btn btn-primary btn13" >肛门直肠部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='二阴部',type='position')}">
+                    <button type="button" class="btn btn-primary btn14" >二阴部</button>
+                </a>
+
+                <a th:href="@{/searchResult(name='全身',type='position')}">
+                    <button type="button" class="btn btn-primary btn15" >全身</button>
+                </a>
+            </div>
+        </div>
+        <!--按分科分类-->
+        <div class="layui-tab-item">
+            <div class="box">
+                <a th:href="@{/searchResult(name='内科',type='branch')}" id="neike">
+                    <submit class="submit3 neike" style="vertical-align:middle"><span></span></submit>
+                </a>
+                <a th:href="@{/searchResult(name='妇科',type='branch')}" id="fuke">
+                    <submit class="submit3 fuke" style="vertical-align:middle"><span></span></submit>
+                </a>
+                <a th:href="@{/searchResult(name='儿科',type='branch')}" id="erke">
+                    <submit class="submit3 erke" style="vertical-align:middle"><span></span></submit>
+                </a>
+                <a th:href="@{/searchResult(name='外科',type='branch')}" id="waike">
+                    <submit class="submit3 waike" style="vertical-align:middle"><span></span></submit>
+                </a>
+                <a th:href="@{/searchResult(name='肛肠科',type='branch')}" id="gangchang">
+                    <submit class="submit3 gangchang" style="vertical-align:middle"><span></span></submit>
+                </a>
+                <a th:href="@{/searchResult(name='皮肤科',type='branch')}" id="pifu">
+                    <submit class="submit3 pifu" style="vertical-align:middle"><span></span></submit>
+                </a>
+                <a th:href="@{/searchResult(name='五官科',type='branch')}" id="wuguan">
+                    <submit class="submit3 wuguan" style="vertical-align:middle"><span></span></submit>
+                </a>
+                <a th:href="@{/searchResult(name='其他',type='branch')}" id="qita">
+                    <submit class="submit3 qita" style="vertical-align:middle"><span></span></submit>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //…
+    });
+</script>
+</body>
+</html>

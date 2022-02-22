@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/css/layui.css}"  media="all">
+    <style type="text/css">
+        .demoTable{
+            margin:60px 0px 0 0px;
+        }
+        .sousuo{
+        font-weight:bold;
+            color:#088A85;
+            font-size:18px;
+            width: 100px;
+            position:relative;
+            height: 100%;
+            float:left;
+            margin:15px 0px 0 20px;
+        }
+        .layui-inline{
+            width: 200px;
+            position:relative;
+            height: 100%;
+            margin:8px 0;
+        }
+        .panghangA{
+            margin:50px 0px 0 0px;
+            color:#04B45F;
+            height: 100%;
+            width:100%;
+        }
+        .panghangB{
+            color:#088A85;
+            height: 100%;
+            width:50%;
+            background-color:#CEF6D8;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="layui-col-xs-offset1 layui-col-xs10">
+        <div class="demoTable">
+            <div class="sousuo">搜索穴位：</div>
+            <div class="layui-inline">
+                <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+            </div>
+            <button class="layui-btn" data-type="reload" id="search">搜索</button>
+
+            <div class="layui-btn-container" id="result">
+                <!--用于存放搜索结果-->
+            </div>
+        </div>
+        <div class="panghangA">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;text-align:left;width:50%;">
+                <legend>浏览量总排行榜</legend>
+            </fieldset>
+            <div style="font-family:Arial;font-size:15px;" id="ViewPhbInfo" class="panghangB">
+                <!--排行榜载体-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+
+<script type="text/javascript">
+    var PhCount = 10;//排行榜数量
+    //每个排行榜单的颜色
+    var PhRdColor = ["red", "red", "orange", "orange", "orange ", "blue ", "blue", "blue", "gray", "gray"];
+
+    var FxDATA ={};
+    FxDATA.View=[];//可以从后台请求数据 这个地方进行模拟数据
+    FxDATA.View.push({ViewCount:1,MC:"足三里"});
+    FxDATA.View.push({ViewCount:2,MC:"关元穴"});
+    FxDATA.View.push({ViewCount:3,MC:"中脘穴"});
+    FxDATA.View.push({ViewCount:4,MC:"内关穴"});
+    FxDATA.View.push({ViewCount:5,MC:"合谷穴"});
+    FxDATA.View.push({ViewCount:6,MC:"涌泉穴"});
+    FxDATA.View.push({ViewCount:7,MC:"阳陵穴"});
+    FxDATA.View.push({ViewCount:8,MC:"凤池穴"});
+    FxDATA.View.push({ViewCount:9,MC:"殷门穴"});
+    if (FxDATA != null && FxDATA.View != undefined) {//浏览量总排行榜
+        str = "<blockquote class='layui-elem-quote layui-quote-nm'>";//排行榜的载体
+        for (var i = 0; i < FxDATA.View.length; i++) {
+            if (i != 0) {
+                str = str + "<br>";
+            }
+            //分别表示排行榜的热度颜色 排行榜的点击数量 当前热度排行的名称
+            str = str + "<span  class='layui-badge-dot layui-bg-" + PhRdColor[i] + "'></span> <span class='layui-badge-rim'>" + FxDATA.View[i].ViewCount + "</span> <a href='xueweiDetail.html?"+FxDATA.View[i].MC+"'>" + FxDATA.View[i].MC + "</a>";
+        }
+        str = str + "</blockquote> ";
+        $("#ViewPhbInfo").append(str);
+    }
+</script>
+<script type="text/javascript">
+    $("#search").click(function () {
+        var name=$("#demoReload").val();
+        console.log(name);
+        $.ajax({
+            type:"get",
+            url:"/xuewei/xueweiUserSearchByName?name="+name,
+            success:function (data) {
+                var p=data.data;
+                for (var i=0;i<data.data.length;i++) {
+                    var name = data.data[i].name;
+                    $("#result").append("<a></a>");
+                    $("#result").find("a").eq(i).text(name);
+
+                    $("#result").find("a").eq(i).attr("href","/xueweiDetail?name="+name);
+
+                    // $("#result").find("a").eq(i).attr("th:href","${/xueweiDetail(name=${" + name + "})});
+
+                    $("#result").find("a").eq(i).attr("class","layui-btn");
+                }
+
+            }
+        })
+    })
+</script>
+</html>

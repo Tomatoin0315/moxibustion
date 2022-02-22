@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/css/layui.css}"  media="all" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}" media="all" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/article1.css}" media="all" type="text/css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script>
+        window.onload=function(){
+            var oTxt = document.getElementById("txt");
+            var oBtn = document.getElementById("btn1");
+            var oUl1 = document.getElementById("ul1");
+
+
+            oBtn.onclick=function(){
+                var oBox = document.createElement("div");
+                oBox.className = "box";
+
+                //创建头像
+                var oDiv = document.createElement("div");
+                oDiv.className = "touxiang";
+                oBox.appendChild(oDiv);
+
+                var oDiv = document.createElement("div");
+                oDiv.className = "nicheng";
+                oDiv.innerHTML = "我";
+                oBox.appendChild(oDiv);
+
+                var oDiv = document.createElement("div");
+                oDiv.className = "pinglun";
+                oDiv.innerHTML = oTxt.value;
+                oBox.appendChild(oDiv);
+
+                var oDiv = document.createElement("div");
+                oDiv.className = "shijian";
+                var oDate = new Date();
+
+                oDiv.innerHTML ="留言时间&nbsp;&nbsp;"+ oDate.getFullYear()+"年"+(oDate.getMonth()+1)+"月"+oDate.getDate()+"日"+"<a href='javascript:;'>删除</a>";
+                oBox.appendChild(oDiv);
+                oUl1.appendChild(oBox);
+                var aA = oDiv.getElementsByTagName("a");
+                for(var i = 0;i<aA.length;i++)
+                {
+                    aA[i].onclick=function(){
+                        oDiv.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container">
+    <div class="jumbotron">
+        <h1>艾灸的“三要三不要”，确实很实用，你知道几条？</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+                <li class="active"><a href="#section-1">一要顺应天时：艾灸遵循自然规律，事半功倍。</a></li>
+                <li><a href="#section-2">二要坚持施灸：艾灸可以防未病，比能治已病更重要！</a></li>
+                <li><a href="#section-3">三要注意位置：不是所有的身体部位都适合直接灸</a></li>
+                <li><a href="#section-4">一、艾灸不要贪多求快</a></li>
+                <li><a href="#section-5">二、艾灸期间不要喝冷饮</a></li>
+                <li><a href="#section-6">三、施灸时不要顺序颠倒</a></li>
+
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <p>艾灸是一种纯天然的，无副作用的调理方法，温热的艾通过穴位的渗透可以起到促进血液循环、疏通经络、调节脏腑阴阳平衡，为身体补充阳气气和能量，排除邪气。
+            </p>
+            <p>艾性属木，木燃烧能生火，象征着天上的太阳，行人体之阳以助生能，热胜寒，能生火，火温土，生万物，火化气，能伐水，这是艾草本有的自然属性。艾灸连续燃烧，使之温热之气由肌表透达经络，又因经络和脏腑相互联系，使之通达五脏六腑、十二经络，循环全身。
+            </p>
+            <p>《医学入门》亦说：“药之不及，针之不到，必须灸之”；《庄子》和《孟子》中也有“越人熏之以艾”和“七年之病求三年之艾”的记载。由此可见，艾灸对于保健养生都有很好的效果，不过艾灸虽好，却也要遵循一定的规律，如果日常能遵守以下的这三要三不要，并假以时日，相信一定可以给你的身体健康带来丰硕的成果。
+            </p>
+            <h2 id="section-1">一要顺应天时：艾灸遵循自然规律，事半功倍。</h2>
+            <p>艾灸疗法从古至今都是治病救命、健康养生的首选。但是很多人却不知道，艾灸要顺应天时，效果才更好。
+            </p>
+            <p>人体的正常生命活动有赖于气血的作用，气行则血行，气止则血止，血气在经脉中流行，完全是由于“气”的推送。各种原因，如“寒则气收，热则气疾”等，都可影响血气的流行，变生百病。而气温则血滑，气寒则血涩，也就是说，气血的运行有遇温则散，遇寒则凝的特点。凡是一切气血凝涩，没有热象的疾病，都可用温气的方法来进行治疗。通过热灸对经络穴位的温热性刺激，可以温经散寒，加强机体气血运行，达到临床治疗目的。所以灸法可用于血寒运行不畅，留滞凝涩引起的痹证、腹泻等疾病，效果甚为显著.
+            </p>
+            <p>人生活在自然界中，自然界四时气候的变化，对人体的生理功能，病理变化均产生一定的影响。《黄帝内经》中经常说到天人合一，认为人体的阳气与自然界生物的阳气相应，生于春，旺于夏，收于秋，藏于冬。艾灸如果顺应天时，比我们吃什么补药都要好！
+            </p>
+            <h2>那么到底艾灸应该如何顺应天时呢？</h2>
+            <p>春夏季节，气候由湿渐热，阳气开发，人体腠理疏松开泄，尤其人夏后天气炎热，易出汗，常食生冷瓜果，易致风、寒、暑、湿、火等邪人肌肤腠理，由饮食而带邪入肠胃。因此，这个时候，保健的重点应该是肺、脾、胃，固护肺卫。抵御外邪人侵；通调肠胃，健运脾土，减少疾病的发生。可选取呼吸系统、消化系统进行灸法保健，取肺经、脾经、胃经三经穴位施灸。
+            </p>
+            <p>而秋冬季节，天气逐渐变冷，阴盛阳衰，人体腠理致密，阳气内敛，为了增强御寒能力，健固腰膝，常以养肾为主，增强体质。这个时候可以取肾经上的中医穴位进行艾灸。秋天气候干燥，宜滋阴润燥，可灸肾经的太溪、水泉及大肠经的曲池、肺经的曲泽以缓秋燥。
+
+            </p>
+            <p>
+                另外艾灸养生在一天当中也要讲究顺应天时。早晨人的精力开始生发，精气神是最旺盛的一个时刻，在这个时候（七点到十一点）进行艾灸可以战胜病邪的最好时刻。这个时间内人体与自然的阳气逐渐转旺，最好选这个时间段进行艾灸。
+            </p>
+
+            <hr>
+
+            <h2 id="section-2">二要坚持施灸：艾灸可以防未病，比能治已病更重要！</h2>
+            <p>在中医典籍《本草从新》中有这样一段描写“艾叶苦辛，生温，熟热，纯阳之性，能回垂绝之阳，通十二经，走三阴，理气血，逐寒湿，暖子宫…以之灸火，能透诸经而除百病。”
+            </p>
+            <p>很多人得益于艾灸疗法，比如腰腿肩颈等病症，往往艾灸一段时间以后，身体疼痛开始减轻甚至完全恢复，人往往是这样，身体症状稍微减轻一点以后，就不再施灸，因为往往把艾灸当成是要，把艾灸当成是一种治病的方式，不舒服的时候灸一灸，一旦身体舒服了，就不再施灸了。</p>
+            <p>如果是这样的话，就进入了一个误区：艾灸只是用来治病的。事实上，两千多年前，《黄帝内经》就已经提出“上医治未病，中医治欲病，下医治已病”。即医术最高明的医生并不是擅长治病的人，而是能够预防疾病的人。因此艾灸疗法是中医学中最古老、最彻底、纯绿色的养生康复方法。更确切的说，艾灸是预防疾病的好方法。因此艾灸养生不能两天打鱼，三天撒网，贵在坚持！为什么这么说呢？</p>
+            <p>经常施灸的人，一定会有这样的感受：刚开始艾灸时只不过是温热舒服一些而已。但随着时间的推移和施灸次数增多，你会惊奇的发现，看似不起眼的艾灸，不但把相关主治病症治愈，且身体的其他不适也会伴随艾灸而消失了......这是什么原因呢？持续施灸可以激发人体的自愈力。</p>
+            <p>什么是自愈力？自然界中有很多动植物都有自愈力，比如壁虎断尾，橡胶树割胶等等。而我们人类也拥有这样的能力。我们与生俱来拥有自我防御、自我修复、自我复原的能力。</p>
+            <p>中医讲三分治、七分养，平时药物的治疗作用只占30%，治疗疾病更多依赖的是身体的自愈力，即人体自我修复的能力。只要机体的自愈力存在，我们就可保持健康。这是中医的根本宗旨，也是医疗的至高层次。</p>
+            <hr>
+
+            <h2 id="section-3">三要注意位置：不是所有的身体部位都适合直接灸</h2>
+            <p>艾灸时，我们一定要注意穴位和禁灸的部位。虽然理论上讲，身体上任何部位均可施灸，但也不能不经考虑，不定穴位，随便施灸。必须根据选定的穴位进行施灸。对于颜面部及后头部，不应使用直接灸以免残留灸痕。万一非灸不可时，则应用极小的灸炷，或艾卷温灸法。此外，皮下静脉亦应尽量避开直接灸。
+            </p>
+
+            <hr>
+            <h2>施灸三不要</h2>
+
+            <h2 id="section-4">一、艾灸不要贪多求快</h2>
+            <p>三阳病证，需少灸。即使灸，刚开始的时候要注意灸量，千万不要贪大壮猛火之灸。
+            </p>
+            <p>体胖之人，多属阳虚，可以适当的加大灸量，而体瘦之人，皮浅肉薄，大多属于阴虚，而木火偏旺，应该减少灸量。且灸火易扰动清阳，上炎为患，施灸时一定要注意引火下行。</p>
+
+            <hr>
+
+            <h2 id="section-5">二、艾灸期间不要喝冷饮</h2>
+            <p>在艾灸的时候，或艾灸的整个疗程，我们最忌讳喝冷水，吃凉饭，或者在施灸之后，马上洗澡。这样做如同给艾灸撤火，湿邪也容易入侵，非常不利于疾病的治疗和日常的保健。应适当温饮，以助阴液，补灼艾伤阴的弊端。
+            </p>
+
+            <hr>
+
+            <h2 id="section-6">三、施灸时不要顺序颠倒</h2>
+            <p>施灸的程序：《千金方》记载：“凡灸当先阳后阴……先上后下。”如果上下前后都有配穴，应先灸阳经，后灸阴经，先灸上部，再灸下部，也就是先背部，后胸腹，先头身，后四肢，依次进行。取其从阳引阴而无亢盛之弊，所以不可颠倒乱灸，如果不讲次序，后灸头面，往往有面热、咽干、口燥的后遗症或不舒服之感觉。
+
+
+
+            </p>
+
+            <hr>
+        </div>
+
+            <h2 align="center">文章留言</h2>
+
+
+            <div id="div1" style="margin: auto" >
+                <textarea cols="100" rows="8" id="txt"></textarea><br />
+                <input type="button" value="留言" id="btn1" />
+
+                <ul id="ul1">
+
+                </ul>
+            </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/js/semantic.min.js}"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

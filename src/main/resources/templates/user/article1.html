@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/css/layui.css}"  media="all" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}" media="all" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/article1.css}" media="all" type="text/css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script>
+        window.onload=function(){
+            var oTxt = document.getElementById("txt");
+            var oBtn = document.getElementById("btn1");
+            var oUl1 = document.getElementById("ul1");
+
+
+            oBtn.onclick=function(){
+                var oBox = document.createElement("div");
+                oBox.className = "box";
+
+                //创建头像
+                var oDiv = document.createElement("div");
+                oDiv.className = "touxiang";
+                oBox.appendChild(oDiv);
+
+                var oDiv = document.createElement("div");
+                oDiv.className = "nicheng";
+                oDiv.innerHTML = "我";
+                oBox.appendChild(oDiv);
+
+                var oDiv = document.createElement("div");
+                oDiv.className = "pinglun";
+                oDiv.innerHTML = oTxt.value;
+                oBox.appendChild(oDiv);
+
+                var oDiv = document.createElement("div");
+                oDiv.className = "shijian";
+                var oDate = new Date();
+
+                oDiv.innerHTML ="留言时间&nbsp;&nbsp;"+ oDate.getFullYear()+"年"+(oDate.getMonth()+1)+"月"+oDate.getDate()+"日"+"<a href='javascript:;'>删除</a>";
+                oBox.appendChild(oDiv);
+                oUl1.appendChild(oBox);
+                var aA = oDiv.getElementsByTagName("a");
+                for(var i = 0;i<aA.length;i++)
+                {
+                    aA[i].onclick=function(){
+                        oDiv.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container">
+    <div class="jumbotron">
+        <h1>艾灸的作用</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+                <li class="active"><a href="#section-1">温经散寒</a></li>
+                <li><a href="#section-2">拔毒泄热</a></li>
+                <li><a href="#section-3">防病保健</a></li>
+                <li><a href="#section-4">升阳举陷</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <h2 id="section-1">温经散寒</h2>
+            <p>人体的正常生命活动有赖于气血的作用，气行则血行，气止则血止，血气在经脉中流行，完全是由于“气”的推送。各种原因，如“寒则气收，热则气疾”等，都可影响血气的流行，变生百病。而气温则血滑，气寒则血涩，也就是说，气血的运行有遇温则散，遇寒则凝的特点。凡是一切气血凝涩，没有热象的疾病，都可用温气的方法来进行治疗。通过热灸对经络穴位的温热性刺激，可以温经散寒，加强机体气血运行，达到临床治疗目的。所以灸法可用于血寒运行不畅，留滞凝涩引起的痹证、腹泻等疾病，效果甚为显著.
+            </p>
+            <hr>
+
+            <h2 id="section-2">拔毒泄热</h2>
+            <p>在古代文献中有“热可用灸”的记载，灸法治疗痈疽，就首见于《黄帝内经》，历代医籍均将灸法作为本病证的一个重要治法。唐代《备急千金要方》进一步指出灸法对脏腑实热有宣泄的作用，该书很多处还对热毒蕴结所致的痈疽及阴虚内热证的灸治作了论述，如载：“小肠热满，灸阴都，随年壮”，又如“肠痈屈两肘，正灸肘尖锐骨各百壮，则下脓血，即差”。“消渴，口干不可忍者，灸小肠俞百壮，横三间寸灸之”。灸法能以热引热，使热外出。灸能散寒，又能清热，表明对机体原来的功能状态起双向调节作用。特别是随着灸增多和临床范围的扩大，这一作用日益为人们所认识。
+            </p>
+            <hr>
+
+            <h2 id="section-3">防病保健</h2>
+            <p>我国古代医家中早就认识到预防疾病的重要性，并提出了“防病于未然”、“治未病”的学术思想，而艾灸除了有治疗作用外，还有预防疾病和保健的作用，是防病保健的方法之一。因为灸疗可温阳补虚，所以灸足三里、中脘，可使胃气常盛，而胃为水谷之海，荣卫之所出，五脏六腑，皆受其气，胃气常盛，则气血充盈；命门为人体真火之所在，为人之根本；关元、气海为藏精蓄血之所，艾灸上穴可使人胃气盛，阳气足，精血充，从而加强了身体抵抗力，病邪难犯，达到防病保健之功。艾灸可以天天做也需要天天做，只有坚持才能见效。
+            </p>
+            <hr>
+
+            <h2 id="section-4">升阳举陷</h2>
+            <p>由于阳气虚弱不固等原因可致上虚下实，气虚下陷，出现脱肛、阴挺、久泄久痢、崩漏、滑胎等，《灵枢·经脉》篇云：“陷下则灸之”，故气虚下陷，脏器下垂之症多用灸疗。关于陷下一症，脾胃学说创始者李东垣还认为“陷下者，皮毛不任风寒”，“天地间无他，唯阴阳二者而已，阳在外在上，阴在内在下，今言下陷者，阳气陷入阴气之中，是阴反居其上而复其阳，脉证俱见在外者，则灸之”。因此，灸疗不仅可以起到益气温阳，升阳举陷，安胎固经等作用，对卫阳不固、腠理疏松者，亦有效果。使机体功能恢复正常。如脱肛、阴挺、久泄等病，可用灸百会穴来提升阳气，以“推而上之”，又如《类经图翼》云：“洞泄寒中脱肛者，灸水分百壮”。总之，这也是艾灸方法的独特作用之一。
+            </p>
+            <hr>
+            <hr>
+        </div>
+
+        <h2 align="center">文章留言</h2>
+
+        <div id="div1" style="margin: auto" >
+            <textarea cols="100" rows="8" id="txt"></textarea><br />
+            <input type="button" value="留言" id="btn1" />
+
+            <ul id="ul1">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/js/semantic.min.js}"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

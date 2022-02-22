@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>智艾</title>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+    <style type="text/css">
+        #row_nav .layui-nav-item a{
+            color: #8D8D8D!important;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row" style="height: 800px">
+<!--    导航栏-->
+    <div class="layui-col-xs2" style="height: 100%">
+
+        <div class="layui-row" style="height: 95%">
+            <div class="layui-col-xs12" style="height: 100%">
+                <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="width: 100%;height: 100%">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;">首页</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">穴位管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">穴位分类管理</a></dd>
+                            <dd><a href="javascript:;">穴位管理</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">部位管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">部位分类管理</a></dd>
+                            <dd><a href="javascript:;">部位管理</a></dd>
+                            <dd><a href="javascript:;">部位治疗方案反馈</a></dd>
+                            <dd><a href="javascript:;">部位治疗方案审核</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">科目管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">科目分类管理</a></dd>
+                            <dd><a href="javascript:;">科目管理</a></dd>
+                            <dd><a href="javascript:;">科目治疗方案反馈</a></dd>
+                            <dd><a href="javascript:;">科目治疗方案审核</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">文章管理</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--    内容-->
+    <div class="layui-col-xs10" style="height: 100%">
+        <div class="layui-row" style="height:8%;border-bottom: 2px solid #000">
+            <div class="layui-col-xs-offset8 layui-col-xs4" style="height: 100%; ">
+                <ul class="layui-nav" style="background-color:transparent!important;color: black!important;" id="row_nav">
+                    <!--<li class="layui-nav-item">
+                        <a href="">控制台<span class="layui-badge">9</span></a>
+                    </li>
+                    <li class="layui-nav-item" >
+                        <a href="" style="color: #8D8D8D!important;">个人中心<span class="layui-badge-dot"></span></a>
+                    </li>-->
+                    <li class="layui-nav-item" lay-unselect="">
+                        <a href="javascript:;" th:text="${session.admin.username}"><img class="layui-nav-img">我</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">修改信息</a></dd>
+                            <dd><a href="javascript:;">安全管理</a></dd>
+                            <dd><a th:href="@{/logout}">退了</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </span>
+            </div>
+
+        </div>
+<!--        引入新页面-->
+        <div class="layui-row" style="height: 86%">
+            <div class="layui-col-xs12" style="height: 100%">
+                <iframe th:src="@{/index}" style="width: 100%;height: 100%" id="page"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/lib/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script>
+    layui.use(['element','layer'], function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        var layer=layui.layer;
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            var value=elem.text();
+            layer.msg(elem.text());
+            var nav=['穴位分类管理','穴位管理','部位分类管理','部位管理','部位治疗方案反馈','部位治疗方案审核','首页','科目分类管理','科目管理','科目治疗方案反馈','科目治疗方案审核','文章管理'];
+            var page=['/admin/xueweiCategory','/admin/xuewei','/admin/positionCategory','/admin/position','/admin/positionFeedback','/admin/positionTreatmentPlan','/admin/','/admin/branchCategory','/admin/branch','/admin/branchFeedback','/admin/branchTreatmentPlan','/admin/article'];
+            $("#page").attr("src",page[nav.indexOf(value)])
+        });
+    });
+</script>
+</body>
+</html>
